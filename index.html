@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidarité Équitable - Plateforme de Dons</title>
+    <script>
+        // Détection de la langue du navigateur et redirection
+        (function() {
+            // Langues supportées
+            const supportedLangs = {
+                'fr': 'index-fr.html',
+                'en': 'index-en.html',
+                'pt': 'index-pt.html',
+                'it': 'index-it.html',
+                'de': 'index-de.html',
+                'es': 'index-es.html',
+                'lt': 'index-lt.html'
+            };
+
+            // Récupérer la langue du navigateur (premier code de langue)
+            const browserLang = navigator.language || navigator.userLanguage;
+            const primaryLang = browserLang.split('-')[0].toLowerCase();
+
+            // Vérifier si la langue est supportée
+            if (supportedLangs[primaryLang]) {
+                // Rediriger vers la version linguistique correspondante
+                window.location.replace(supportedLangs[primaryLang]);
+            } else {
+                // Par défaut vers l'anglais si langue non supportée
+                window.location.replace('index-en.html');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Contenu minimal en cas de non-redirection -->
+    <div style="text-align: center; padding: 50px;">
+        <h1>Redirection en cours...</h1>
+        <p>Si vous n'êtes pas redirigé automatiquement, <a href="index-en.html">cliquez ici</a> pour la version anglaise.</p>
+    </div>
+</body>
+</html>

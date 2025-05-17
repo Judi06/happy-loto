@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - Solidarité Équitable</title>
+    <style>
+        :root {
+            --primary: #2B6CB0;
+            --primary-dark: #2C5282;
+            --secondary: #F6AD55;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --gray: #718096;
+            --light-gray: #E2E8F0;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .breadcrumb .separator {
+            color: var(--secondary);
+        }
+
+        main {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 30px 0 15px;
+        }
+
+        p, ul {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        .data-table th, .data-table td {
+            border: 1px solid var(--light-gray);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: var(--light);
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .breadcrumb li {
+                font-size: 0.8rem;
+            }
+            
+            .content-section {
+                padding: 0 15px;
+            }
+            
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 60px 0 30px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .breadcrumb {
+                flex-wrap: wrap;
+            }
+            
+            .breadcrumb li {
+                margin: 5px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+            }
+            
+            .footer-links li {
+                margin: 5px 0;
+            }
+            
+            .data-table th, .data-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index-de.html" class="logo">Solidarité<span>Équitable</span></a>
+            <ul class="breadcrumb">
+                <li><a href="index-de.html">Startseite</a></li>
+                <li class="separator">/</li>
+                <li>Datenschutzerklärung</li>
+            </ul>
+            <h1>Datenschutzerklärung</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="content-section">
+                <div class="highlight-box">
+                    <p>Letzte Aktualisierung: 1. Januar 2021</p>
+                </div>
+
+                <h2>1. Einführung</h2>
+                <p>Solidarité Équitable ("wir", "uns", "unser") verpflichtet sich zum Schutz der Privatsphäre unserer Nutzer. Diese Datenschutzerklärung erklärt, wie wir Ihre persönlichen Daten gemäß der Datenschutz-Grundverordnung (DSGVO) und der französischen Gesetzgebung sammeln, verwenden, teilen und schützen.</p>
+
+                <h2>2. Erhobene Daten</h2>
+                <h3>2.1 Arten von Daten</h3>
+                <p>Wir können folgende Kategorien personenbezogener Daten erfassen:</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Kategorie</th>
+                            <th>Beispiele</th>
+                            <th>Zweck</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Identität</td>
+                            <td>Name, Vorname, Geburtsdatum, Ausweisdokument</td>
+                            <td>Identitätsprüfung, Berechtigung</td>
+                        </tr>
+                        <tr>
+                            <td>Kontaktdaten</td>
+                            <td>Adresse, E-Mail, Telefonnummer</td>
+                            <td>Kommunikation, Zustellung der Spenden</td>
+                        </tr>
+                        <tr>
+                            <td>Technische Daten</td>
+                            <td>IP-Adresse, Browsertyp, Interaktionsverlauf</td>
+                            <td>Sicherheit, Verbesserung des Dienstes</td>
+                        </tr>
+                        <tr>
+                            <td>Nachweisdokumente</td>
+                            <td>Wohnsitznachweis, berufliche Unterlagen</td>
+                            <td>Überprüfung der Berechtigungskriterien</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 Erhebungsmethoden</h3>
+                <p>Wir erfassen Daten, wenn Sie:</p>
+                <ul>
+                    <li>An unserem Gewinnspiel teilnehmen</li>
+                    <li>Unser Formular für die Annahme von Gewinnen ausfüllen</li>
+                    <li>Nachweisdokumente hochladen</li>
+                    <li>Mit unserem Kundenservice kommunizieren</li>
+                    <li>Auf unserer Plattform navigieren (Cookies)</li>
+                </ul>
+
+                <h2>3. Verarbeitungszwecke</h2>
+                <p>Ihre Daten werden für folgende Zwecke verarbeitet:</p>
+                <ul>
+                    <li><strong>Spendenverwaltung:</strong> Überprüfung der Berechtigung, Zuweisung und Zustellung von Spenden</li>
+                    <li><strong>Kundenbeziehung:</strong> Beantwortung von Anfragen, wichtige Benachrichtigungen</li>
+                    <li><strong>Dienstverbesserung:</strong> Nutzungsanalyse, Entwicklung neuer Funktionen</li>
+                    <li><strong>Gesetzliche Verpflichtungen:</strong> Einhaltung geltender Vorschriften</li>
+                </ul>
+
+                <h2>4. Rechtsgrundlagen der Verarbeitung</h2>
+                <p>Unsere Verarbeitungen basieren auf:</p>
+                <ul>
+                    <li><strong>Vertragserfüllung:</strong> Zur Bereitstellung des angeforderten Dienstes</li>
+                    <li><strong>Gesetzliche Verpflichtung:</strong> Zur Erfüllung unserer regulatorischen Pflichten</li>
+                    <li><strong>Berechtigtes Interesse:</strong> Zur Verbesserung unserer Dienste und Betrugsprävention</li>
+                    <li><strong>Einwilligung:</strong> Für nicht essentielle Cookies und Marketingkommunikation</li>
+                </ul>
+
+                <h2>5. Datenweitergabe</h2>
+                <h3>5.1 Empfänger</h3>
+                <p>Ihre Daten können mit folgenden Parteien geteilt werden:</p>
+                <ul>
+                    <li><strong>Dienstleister:</strong> Zustellung, Hosting, technischer Support (mit strengen Verträgen)</li>
+                    <li><strong>Behörden:</strong> Nur bei gesetzlicher Aufforderung</li>
+                    <li><strong>Spendenpartner:</strong> Für die Zustellung spezifischer Spenden (nur notwendige Daten)</li>
+                </ul>
+
+                <h3>5.2 Übermittlung außerhalb der EU</h3>
+                <p>Ihre Daten werden in der Europäischen Union gehostet. Bei Übermittlungen außerhalb der EU würden wir geeignete Garantien (EU-Standardvertragsklauseln) implementieren.</p>
+
+                <h2>6. Aufbewahrungsdauer</h2>
+                <p>Wir bewahren Ihre Daten auf:</p>
+                <ul>
+                    <li><strong>Aktive Daten:</strong> 3 Jahre nach der letzten Interaktion für Nicht-Empfänger</li>
+                    <li><strong>Empfänger:</strong> 5 Jahre nach Erhalt der Spende (gesetzliche Verpflichtung)</li>
+                    <li><strong>Nachweisdokumente:</strong> 1 Jahr nach Überprüfung</li>
+                    <li><strong>Anonymisierte Daten:</strong> Zu statistischen Zwecken</li>
+                </ul>
+
+                <h2>7. Datensicherheit</h2>
+                <p>Wir implementieren geeignete technische und organisatorische Maßnahmen:</p>
+                <ul>
+                    <li>Verschlüsselung sensibler Daten</li>
+                    <li>Strikte Zugangskontrolle</li>
+                    <li>Regelmäßige Sicherheitsaudits</li>
+                    <li>Mitarbeiterschulungen</li>
+                </ul>
+
+                <h2>8. Ihre Rechte</h2>
+                <p>Gemäß der DSGVO haben Sie folgende Rechte:</p>
+                <ul>
+                    <li><strong>Auskunftsrecht:</strong> Kopie Ihrer Daten erhalten</li>
+                    <li><strong>Berichtigungsrecht:</strong> Unrichtige Daten korrigieren</li>
+                    <li><strong>Löschungsrecht:</strong> Löschung unter bestimmten Bedingungen beantragen</li>
+                    <li><strong>Einschränkungsrecht:</strong> Verarbeitung einschränken</li>
+                    <li><strong>Widerspruchsrecht:</strong> Aus berechtigten Gründen widersprechen</li>
+                    <li><strong>Datenübertragbarkeit:</strong> Ihre Daten in strukturiertem Format erhalten</li>
+                </ul>
+
+                <h3>8.1 Ausübung Ihrer Rechte</h3>
+                <p>Um Ihre Rechte auszuüben oder Fragen zu dieser Richtlinie zu stellen:</p>
+                <p><strong>E-Mail:</strong> dpo@solidarite-equitable.org</p>
+                <p><strong>Post:</strong> DPO - Solidarité Équitable, 12 Rue de la Solidarité, 75000 Paris</p>
+                <p>Wir antworten innerhalb eines Monats. Bei Ablehnung begründen wir unsere Entscheidung.</p>
+
+                <h2>9. Cookies und ähnliche Technologien</h2>
+                <p>Wir verwenden:</p>
+                <ul>
+                    <li><strong>Essentielle Cookies:</strong> Notwendig für die Funktionalität der Plattform</li>
+                    <li><strong>Analytische Cookies:</strong> Zur Messung der Nutzung (mit Ihrer Zustimmung)</li>
+                </ul>
+                <p>Sie können Ihre Präferenzen über unser Cookie-Banner oder Ihre Browsereinstellungen verwalten.</p>
+
+                <h2>10. Änderungen der Richtlinie</h2>
+                <p>Wir können diese Richtlinie aktualisieren. Änderungen werden bei Veröffentlichung auf unserer Plattform wirksam.</p>
+
+                <h2>11. Kontakt und Beschwerden</h2>
+                <p>Für Fragen oder Beschwerden zum Schutz Ihrer Daten:</p>
+                <p><strong>Datenschutzbeauftragter:</strong> dpo@solidarite-equitable.org</p>
+                <p>Sie haben auch das Recht, eine Beschwerde bei der CNIL (www.cnil.fr) einzureichen.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index-de.html">Startseite</a></li>
+                <li><a href="conditions-de.html">Nutzungsbedingungen</a></li>
+                <li><a href="confidentialite-de.html">Datenschutzerklärung</a></li>
+                <li><a href="nous-connaitre-de.html">Über uns</a></li>
+                <li><a href="contact-de.html">Kontakt</a></li>
+            </ul>
+            <p class="copyright">&copy; 2023 Solidarité Équitable. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>

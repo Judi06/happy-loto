@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conheça-nos - Solidariedade Equitativa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2B6CB0;
+            --primary-dark: #2C5282;
+            --secondary: #F6AD55;
+            --accent: #F56565;
+            --dark: #2D3748;
+            --light: #F7FAFC;
+            --gray: #718096;
+            --light-gray: #E2E8F0;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(43, 108, 176, 0.9) 0%, rgba(66, 153, 225, 0.9) 100%), url('images/2d63b565-2b43-4b0f-a455-c22ced54608e.webp') no-repeat center center/cover;
+            color: var(--white);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .breadcrumb .separator {
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .about-mission {
+            background-color: var(--white);
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-mission:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+
+        .about-mission p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .team-section {
+            background: linear-gradient(135deg, rgba(43, 108, 176, 0.05) 0%, rgba(66, 153, 225, 0.05) 100%);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .member-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 60px;
+            width: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(43, 108, 176, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: #E69E3E;
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        footer {
+            background: var(--dark);
+            color: var(--light-gray);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .about-mission {
+                padding: 40px;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 0 40px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .about-mission {
+                padding: 30px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .breadcrumb li {
+                font-size: 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .partner-logo {
+                height: 40px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .footer-column h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index-pt.html" class="logo">Solidariedade<span>Equitativa</span></a>
+            <ul class="breadcrumb">
+                <li><a href="index-pt.html">Início</a></li>
+                <li class="separator">/</li>
+                <li>Conheça-nos</li>
+            </ul>
+            <h1>Nosso Compromisso Solidário</h1>
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section>
+        <div class="container">
+            <div class="about-mission">
+                <h2 class="section-title">Nossa Missão</h2>
+                <p>Fundada em 2018 em Barcelona, a Solidariedade Equitativa é uma organização sem fins lucrativos dedicada a fornecer ajuda concreta para pessoas em situação de vulnerabilidade. Nossa missão é simples mas poderosa: transformar doações em oportunidades reais para quem mais precisa.</p>
+                
+                <p>Ao contrário dos sistemas tradicionais de assistência, desenvolvemos um modelo inovador de redistribuição equitativa onde cada beneficiário tem exatamente as mesmas chances de receber um apoio significativo, seja equipamentos domésticos, veículos utilitários ou ajuda financeira.</p>
+                
+                <p>Nossa atuação conta com uma rede de doadores comprometidos - indivíduos influentes, empresas sociais e fundações filantrópicas - que compartilham nossa visão de uma solidariedade mais justa e transparente.</p>
+                
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="#values" class="btn btn-secondary">Conheça nossos valores</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values">
+        <div class="container">
+            <h2 class="section-title">Nossos Valores Fundamentais</h2>
+            <p class="section-subtitle">Princípios que guiam cada uma de nossas ações e decisões</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon" style="background: var(--primary);">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Equidade</h3>
+                    <p>Acreditamos em um sistema onde todos têm as mesmas oportunidades, sem discriminação ou favoritismo. Nosso processo de seleção é transparente e aleatório.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon" style="background: var(--accent);">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Solidariedade</h3>
+                    <p>Cada doação é uma mão estendida para quem precisa. Criamos laços humanos que vão além da assistência material.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon" style="background: var(--secondary);">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Transparência</h3>
+                    <p>Da captação de recursos à distribuição das doações, mantemos altos padrões de transparência e prestação de contas.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon" style="background: #38A169;">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Impacto Duradouro</h3>
+                    <p>Selecionamos cuidadosamente as doações para que tenham um efeito transformador e duradouro na vida dos beneficiários.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Nossa Equipe Comprometida</h2>
+            <p class="section-subtitle">Uma equipe multidisciplinar dedicada à missão social</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="images/esmeralda_fonseca.jpg" alt="Esmeralda Fonseca" class="member-image">
+                    <div class="member-info">
+                        <h3>Esmeralda Fonseca</h3>
+                        <p>Fundadora & Diretora</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/vincent_lafourche.png" alt="Vincent Lafourche" class="member-image">
+                    <div class="member-info">
+                        <h3>Vincent Lafourche</h3>
+                        <p>Coordenador de Programas</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/fiorenza_direnzo.jpg" alt="Fiorenza Direnzo" class="member-image">
+                    <div class="member-info">
+                        <h3>Fiorenza Direnzo</h3>
+                        <p>Responsável por Parcerias</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="images/franklin_smith.jpg" alt="Franklin Smith" class="member-image">
+                    <div class="member-info">
+                        <h3>Franklin Smith</h3>
+                        <p>Responsável por Monitoramento & Avaliação</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Nossos Parceiros Comprometidos</h2>
+            <p class="section-subtitle">Alianças fortes para um impacto maior</p>
+
+            <div class="partners">
+                <img src="images/2010-foei-supporting-the-march-of-the-campesinos-sheila-menon-300x300.jpg" alt="Les Amis de la Terre" class="partner-logo">
+                <img src="images/clement-vatte-9p2RUP6hoB0-unsplash.jpg" alt="Fedex" class="partner-logo">
+                <img src="images/8767623ced0908c3dc251f67ff80e81c.jpg" alt="Mr Beast" class="partner-logo">
+                <img src="images/logo-fondation-les-amis-de-l-arche-bleu-vertical-203-png.png" alt="Les Amis de l'Arche" class="partner-logo">
+                <img src="images/dwayne_johnson.jpg" alt="Dwayne Johnson" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Links Úteis</h3>
+                    <ul class="footer-links">
+                        <li><a href="index-pt.html">Início</a></li>
+                        <li><a href="conditions-pt.html">Termos de Uso</a></li>
+                        <li><a href="confidentialite-pt.html">Política de Privacidade</a></li>
+                        <li><a href="contact-pt.html">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Solidariedade Equitativa. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
